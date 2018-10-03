@@ -1,0 +1,17 @@
+jVault - Simple Password Encryption
+Bob Walker. Vancouver, BC, Canada. bwalker99@gmail.com
+
+Use jVault.bat or jVault.sh to start program. Optional initial file on command line.
+jVault comes with sample encrypted password file called sample.txt. Password is: sample. 
+
+v1.0 April 1, 2010 (no, really)
+v1.0.1 Sept 12, 2010 - Added support for initial file on command line. 
+v1.0.2 Nov 11, 2010 - Lest we forget. 
+ Fixed 8k limit problem problem. Removed from Known Issues. 
+ Fixed saving new file. Prompted for password if modified and saved a second time.   
+
+TODO: 
+ - Open html help file from File->Help link.
+ - Look at reading encrypted file by byte stream. Needs cleaning up. 
+ - Incorporate new JASYPT 1.7 libraries. There should be a 'lite' jar that would be more appropriate 
+   

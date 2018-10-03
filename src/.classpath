@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/usr/local/lib/mysql-connector-java-3.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="/usr/local/lib/jasypt-1.6.jar"/>
+	<classpathentry kind="lib" path="/usr/local/lib/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="/usr/local/lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

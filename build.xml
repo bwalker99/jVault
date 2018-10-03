@@ -1,0 +1,56 @@
+<project name="jvault" default="dist" basedir=".">
+    <description>jVault application ant build.
+    </description>
+
+    <!-- set global properties for this build -->
+    <property environment="env" />
+    <property file="build.properties" />
+
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp />
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build_dir}" />
+        <mkdir dir="${dist_dir}" />
+        <mkdir dir="${dist_dir}/jVault" />
+        <mkdir dir="${dist_dir}/jVault/lib" />        
+    </target>
+
+    <target name="compile" depends="init" description="Compile files. ">
+        <!-- Compile the java code from ${src_dir} into ${build_dir} -->
+        <!-- debug=true puts line numbers in error stack dumps. Inflates the code but is handy -->
+        <javac srcdir="${src_dir}" destdir="${build_dir}" debug="true">
+            <classpath path="${lib_dir}/commons-codec-1.4.jar;${lib_dir}/commons-lang-2.5.jar;${lib_dir}/jasypt-1.6.jar;." />
+        </javac>
+    </target>
+
+    <target name="dist" depends="compile" description="generate the distribution">
+        <!-- Create the distribution directory -->
+        <mkdir dir="${dist_dir}/lib" />
+
+        <echo file="${buildlog}" append="true">${DSTAMP} ${TSTAMP} : Building jVault distribution jar file.
+        </echo>
+
+        <jar jarfile="${dist_dir}/jVault/lib/jvault.jar">
+            <fileset dir="${build_dir}" />
+        </jar>
+        
+        <copy todir="${dist_dir}/jVault/lib"> 
+          <fileset dir="${lib_dir}" />
+        </copy>
+        <copy todir="${dist_dir}/jVault"> 
+          <fileset dir="${resources_dir}" />
+        </copy>
+                                
+        <zip destfile="${dist_dir}/jvault.zip" 
+             basedir="${dist_dir}" 
+             excludes="jvault.zip" />    
+             
+    </target>
+
+    <target name="clean" description="clean up">
+        <!-- Delete the ${build_dir} and ${dist_dir} directory trees -->
+        <delete dir="${build_dir}" />
+        <delete dir="${dist_dir}" />
+    </target>
+</project>
